@@ -16,3 +16,9 @@ def get_random_mouth() -> Image:
 
 def get_random_beard() -> Image:
     return Image.open(random.choice(assets['beard']))
+
+def get_random_glasses() -> Image:
+    return Image.open(random.choice(assets['glasses']))
+
+def get_random_hair() -> Image:
+    return Image.open(random.choice(assets['hair']))

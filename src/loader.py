@@ -18,6 +18,8 @@ assets = {
     'mouth': [],
     'hair': [],
     'beard': [],
+    'glasses': [],
+    'hair': [],
 }
 
 def load_assets(directories):

@@ -16,6 +16,7 @@ load_assets([
     'assets/mouth',
     'assets/hair',
     'assets/beard',
+    'assets/glasses',
 ])
 
 if __name__ == '__main__':
