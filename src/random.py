@@ -22,6 +22,7 @@ def generate_random_images(count):
         os.mkdir('nft')
 
     for x in range(int(count)):
+        print('Random Boolean', True if random.randint(0, 1) else False)
         yymmss = datetime.datetime.now().strftime('%y-%m-%s')
         datehash = hashlib.md5('{}-{}'.format(random.randrange(0, 9999), yymmss).encode('utf-8')).hexdigest()
         generate_random_image('nft/{}.png'.format(datehash))
