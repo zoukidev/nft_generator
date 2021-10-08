@@ -3,7 +3,7 @@ from src.random import *
 
 want_nft=0
 parser = argparse.ArgumentParser(description='Generate random NFT.')
-parser.add_argument('--number', help='--number <number of generated image>', default=1)
+parser.add_argument('-n','--number', help='The number of NFTs you wish to generate', default=1, required=True)
 
 args = parser.parse_args()
 print(args)
@@ -14,8 +14,8 @@ def generate_random_nft(x):
     random_face = get_random_face()
     new_image.paste(random_face, (0, 0), random_face)
 
-    random_face_color = get_random_face_color()
-    new_image.paste(random_face_color, (0, 0), random_face_color)
+    # random_face_color = get_random_face_color()
+    # new_image.paste(random_face_color, (0, 0), random_face_color)
 
     random_eye = get_random_eye()
     new_image.paste(random_eye, (0, 0), random_eye)
@@ -28,5 +28,5 @@ def generate_random_nft(x):
     new_image.save(str(x) + '.png')
 
 
-# for x in range(10):
-generate_random_nft('new_image')
+for x in range(int(args.number)):
+    generate_random_nft(x)

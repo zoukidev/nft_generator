@@ -8,14 +8,6 @@ faces = [
     'assets/faces/001.png'
 ]
 
-face_colors = [
-    'assets/face_colors/001.png',
-    'assets/face_colors/002.png',
-    'assets/face_colors/003.png',
-    'assets/face_colors/004.png',
-    'assets/face_colors/005.png'
-]
-
 eyes = [
     'assets/eyes/001.png',
     'assets/eyes/002.png'
