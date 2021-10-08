@@ -17,10 +17,11 @@ assets = {
     'eye': [],
     'mouth': [],
     'hair': [],
+    'beard': [],
 }
 
 def load_assets(directories):
     for dir in directories:
+        dir_type = str(dir.split('/')[1])
         for asset in os.listdir(dir):
-            dir_type = dir.split('/')[1]
             assets[dir_type].append('{}/{}'.format(dir, asset))
