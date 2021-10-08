@@ -2,7 +2,7 @@ import random
 from .loader import bg_colors, faces, face_colors, eyes, mouths
 from PIL import Image, ImageColor
 
-def get_random_bg(mode='RGBA'):
+def get_random_bg(mode='RGB'):
     return ImageColor.getcolor(random.choice(bg_colors), mode)
 
 def get_random_face():
