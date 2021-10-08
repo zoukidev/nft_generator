@@ -1,27 +1,11 @@
-import random
-import PIL
-from PIL import Image, ImageColor
+from src.random import *
 
-bgColors = [
-    ImageColor.getcolor('#3498db', 'RGB'),
-    ImageColor.getcolor('#f1c40f', 'RGB'),
-    ImageColor.getcolor('#e74c3c', 'RGB'),
-    ImageColor.getcolor('#2ecc71', 'RGB'),
-]
+new_image = Image.new('RGBA', (32, 32), get_random_bg())
 
-faces = [
-    'assets/faces/001.png'
-]
-
-eyes = [
-    'assets/eyes/001.png'
-]
-
-new_image = Image.new('RGBA', (32, 32), random.choice(bgColors))
-
-random_face = Image.open(random.choice(faces))
+random_face = get_random_face()
 new_image.paste(random_face, (0, 0), random_face)
-random_eye = Image.open(random.choice(eyes))
+
+random_eye = get_random_eye()
 new_image.paste(random_eye, (0, 0), random_eye)
 
 
