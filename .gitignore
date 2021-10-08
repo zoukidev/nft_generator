@@ -146,3 +146,4 @@ cython_debug/
 
 # Custom
 .DS_Store
+nft/
