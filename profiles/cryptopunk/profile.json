@@ -1,59 +1,66 @@
 {
-    "conditions": [
-        {
-            "name": "genre",
+    "conditions": {
+        "genre": {
             "type": "random",
+            "valueType": "string",
             "choices": ["male", "female"]
+        },
+        "haveBeard": {
+            "type": "random",
+            "valueType": "boolean",
+            "choices": [true, false],
+            "dependsOn": "genre=male"
         }
-    ],
+    },
     "assets": [
         {
-            "name": "beard",
-            "assets": [
-                "001.png",
-                "002.png",
-                "003.png"
-            ],
-            "conditions": [
-                {
-                    "if": "genre",
-                    "equal": "male"
-                }
-            ]
-        },
-        {
-            "name": "eye",
-            "assets": [
-                "001.png"
-            ]
-        },
-        {
+            "index": 0,
             "name": "face",
             "assets": [
-                "001.png",
-                "002.png",
-                "003.png",
-                "004.png"
+                "profiles/cryptopunk/face/001.png",
+                "profiles/cryptopunk/face/002.png",
+                "profiles/cryptopunk/face/003.png",
+                "profiles/cryptopunk/face/004.png"
             ]
         },
         {
-            "name": "glasses",
+            "index": 1,
+            "name": "eye",
             "assets": [
-                "001.png"
+                "profiles/cryptopunk/eye/001.png"
             ]
         },
         {
-            "name": "hair",
-            "assets": [
-                "001.png"
-            ]
-        },
-        {
+            "index": 2,
             "name": "mouth",
             "assets": [
-                "001.png",
-                "002.png"
+                "profiles/cryptopunk/mouth/001.png",
+                "profiles/cryptopunk/mouth/002.png"
             ]
+        },
+        {
+            "index": 3,
+            "name": "hair",
+            "assets": [
+                "profiles/cryptopunk/hair/001.png"
+            ]
+        },
+        {
+            "index": 4,
+            "name": "glasses",
+            "assets": [
+                "profiles/cryptopunk/glasses/001.png"
+            ]
+        },
+        {
+            "index": 5,
+            "name": "beard",
+            "assets": [
+                "profiles/cryptopunk/beard/001.png",
+                "profiles/cryptopunk/beard/002.png",
+                "profiles/cryptopunk/beard/003.png"
+            ],
+            "conditions": ["haveBeard"]
         }
     ]
 }

@@ -14,6 +14,3 @@ def resolve_path(path):
         path = path + '/'
     
     return path
-
-def dump(data):
-    print(json.dumps(data, indent=4))

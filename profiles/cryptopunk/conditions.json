@@ -1,7 +1,0 @@
-[
-    {
-        "name": "genre",
-        "type": "random",
-        "choices": ["male", "female"]
-    }
-]
