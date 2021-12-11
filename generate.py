@@ -1,32 +1,24 @@
 import argparse
 import os
-import hashlib
-import random
-import datetime
-from src.profil import Profile
-from src.loader import load_assets
+from src.nft import NFT
+from src.loader import load_asset_pack
+from src.utils import resolve_path
 
 parser = argparse.ArgumentParser(description='Generate random NFT.')
-parser.add_argument('-n','--number', help='The number of NFTs you wish to generate', default=1, required=True)
+parser.add_argument('-p','--profile', help='The profile you wish to use', default='cryptopunk', required=False)
+parser.add_argument('-n','--number', help='The number of NFTs you wish to generate', default=1, required=False)
+parser.add_argument('-o','--output', help='The output directory', default='nft/', required=False)
 args = parser.parse_args()
 
-load_assets([
-    'assets/face',
-    'assets/eye',
-    'assets/mouth',
-    'assets/hair',
-    'assets/beard',
-    'assets/glasses',
-])
+def create_nft(asset_pack):
+    for x in range(int(args.number)):
+        nft = NFT(asset_pack)
+        nft.save(args.output)
 
 if __name__ == '__main__':
-    if not os.path.exists('nft/'):
-        os.mkdir('nft')
+    args.output = resolve_path(args.output)
 
-    for x in range(int(args.number)):
-        yymmss = datetime.datetime.now().strftime('%y-%m-%s')
-        datehash = hashlib.md5('{}-{}'.format(random.randrange(0, 9999), yymmss).encode('utf-8')).hexdigest()
-        new_profile = Profile()
-        filename = 'nft/{}.png'.format(datehash)
-        print(filename)
-        new_profile.saveImage(filename)
+    if not os.path.exists(args.output):
+        os.mkdir(args.output)
+
+    load_asset_pack(args.profile, create_nft)

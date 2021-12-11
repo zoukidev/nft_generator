@@ -1,0 +1,59 @@
+{
+    "conditions": [
+        {
+            "name": "genre",
+            "type": "random",
+            "choices": ["male", "female"]
+        }
+    ],
+    "assets": [
+        {
+            "name": "beard",
+            "assets": [
+                "001.png",
+                "002.png",
+                "003.png"
+            ],
+            "conditions": [
+                {
+                    "if": "genre",
+                    "equal": "male"
+                }
+            ]
+        },
+        {
+            "name": "eye",
+            "assets": [
+                "001.png"
+            ]
+        },
+        {
+            "name": "face",
+            "assets": [
+                "001.png",
+                "002.png",
+                "003.png",
+                "004.png"
+            ]
+        },
+        {
+            "name": "glasses",
+            "assets": [
+                "001.png"
+            ]
+        },
+        {
+            "name": "hair",
+            "assets": [
+                "001.png"
+            ]
+        },
+        {
+            "name": "mouth",
+            "assets": [
+                "001.png",
+                "002.png"
+            ]
+        }
+    ]
+}

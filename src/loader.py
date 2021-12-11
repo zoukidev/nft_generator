@@ -1,29 +1,10 @@
-import os
+from src.utils import dump, resolve_path
+import json
 
-bg_colors = [
-    '#1abc9c',
-    '#2ecc71',
-    '#3498db',
-    '#9b59b6',
-    '#34495e',
-    '#f1c40f',
-    '#e67e22',
-    '#e74c3c',
-    '#ecf0f1'
-]
+bg_colors = ['#1abc9c', '#2ecc71', '#3498db', '#9b59b6', '#34495e', '#f1c40f', '#e67e22', '#e74c3c', '#ecf0f1']
+asset_pack = {}
 
-assets = {
-    'face': [],
-    'eye': [],
-    'mouth': [],
-    'hair': [],
-    'beard': [],
-    'glasses': [],
-    'hair': [],
-}
-
-def load_assets(directories):
-    for dir in directories:
-        dir_type = str(dir.split('/')[1])
-        for asset in os.listdir(dir):
-            assets[dir_type].append('{}/{}'.format(dir, asset))
+def load_asset_pack(profile, cb):
+    with open('profiles/{}'.format(resolve_path(profile)) + 'profile.json') as f:
+        asset_pack = json.loads(f.read())
+        cb(asset_pack)
