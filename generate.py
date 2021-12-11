@@ -1,21 +1,24 @@
 import argparse
 import os
-import json
 from src.nft import NFT
 from src.loader import load_asset_pack
 from src.utils import resolve_path
-from operator import itemgetter, attrgetter
 
 parser = argparse.ArgumentParser(description='Generate random NFT.')
 parser.add_argument('-p','--profile', help='The profile you wish to use', default='cryptopunk', required=False)
 parser.add_argument('-n','--number', help='The number of NFTs you wish to generate', default=1, required=False)
 parser.add_argument('-o','--output', help='The output directory', default='nft/', required=False)
+nfts = []
 args = parser.parse_args()
 
 def create_nft(asset_pack):
     for x in range(int(args.number)):
         nft = NFT(asset_pack)
-        nft.save(args.output)
+        if nft.get_hash() not in nfts:
+            nft.save(args.output, x)
+            nfts.append(nft.hash)
+        else:
+            continue
 
 if __name__ == '__main__':
     args.output = resolve_path(args.output)

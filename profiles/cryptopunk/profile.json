@@ -68,7 +68,8 @@
             "index": 4,
             "name": "hat",
             "assets": [
-                "profiles/cryptopunk/hat/001.png"
+                "profiles/cryptopunk/hat/001.png",
+                "profiles/cryptopunk/hat/002.png"
             ],
             "conditions": ["haveHat"]
         }

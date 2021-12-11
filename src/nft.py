@@ -1,16 +1,15 @@
-from src.utils import generate_unique_hash
+from src.utils import generate_unique_filename, generate_hash
 from PIL import Image
 from src.loader import bg_colors
 import random
-import json
 
 class NFT:
-    def __init__(self, asset_pack, custom_filename=None) -> None:
+    def __init__(self, asset_pack) -> None:
         self.assets = asset_pack.get('assets')
         self.conditions = self.load_conditions(asset_pack.get('conditions'))
-        self.name = custom_filename if custom_filename is not None and len(custom_filename) > 0 else generate_unique_hash()
         self.layers = list()
         self.random_properties()
+        self.hash = None
 
     def random_properties(self):
         for asset_config in sorted(self.assets, key=lambda x : x['index'], reverse=False):
@@ -33,9 +32,12 @@ class NFT:
                             conditions_dict[condition_key] = False
         return conditions_dict
 
-    def save(self, ouput):
-        filename = '{}{}.png'.format(ouput, self.name)
+    def get_hash(self):
+        self.hash = generate_hash(self.layers)
+        return self.hash
 
+    def save(self, ouput, i):
+        filename = '{}{}.png'.format(ouput, generate_unique_filename())
         new_image = Image.new('RGBA', (32, 32), random.choice(bg_colors))
 
         for layer in self.layers:
@@ -45,7 +47,7 @@ class NFT:
         new_image = new_image.resize((300, 300), resample=Image.NEAREST)
         new_image.save(filename)
 
-        print('merge {} layers, saved {}'.format(len(self.layers), filename))
+        print('#{}: {} (Hash: {}, {} Layers)'.format(i, filename, self.hash, len(self.layers)))
 
     def debug(self):
         print('genre={}, haveBeard={}'.format(self.conditions['genre'], True if self.conditions['haveBeard'] else False))
