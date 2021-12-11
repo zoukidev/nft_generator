@@ -10,6 +10,17 @@
             "valueType": "boolean",
             "choices": [true, false],
             "dependsOn": "genre=male"
+        },
+        "haveHair": {
+            "type": "random",
+            "valueType": "boolean",
+            "choices": [true, false],
+            "dependsOn": "genre=male"
+        },
+        "haveHat": {
+            "type": "random",
+            "valueType": "boolean",
+            "choices": [true, false]
         }
     },
     "assets": [
@@ -17,17 +28,15 @@
             "index": 0,
             "name": "face",
             "assets": [
-                "profiles/cryptopunk/face/001.png",
-                "profiles/cryptopunk/face/002.png",
-                "profiles/cryptopunk/face/003.png",
-                "profiles/cryptopunk/face/004.png"
+                "profiles/cryptopunk/face/001.png"
             ]
         },
         {
             "index": 1,
             "name": "eye",
             "assets": [
-                "profiles/cryptopunk/eye/001.png"
+                "profiles/cryptopunk/eye/001.png",
+                "profiles/cryptopunk/eye/002.png"
             ]
         },
         {
@@ -43,24 +52,25 @@
             "name": "hair",
             "assets": [
                 "profiles/cryptopunk/hair/001.png"
-            ]
+            ],
+            "conditions": ["haveHair"]
         },
         {
             "index": 4,
-            "name": "glasses",
-            "assets": [
-                "profiles/cryptopunk/glasses/001.png"
-            ]
-        },
-        {
-            "index": 5,
             "name": "beard",
             "assets": [
                 "profiles/cryptopunk/beard/001.png",
-                "profiles/cryptopunk/beard/002.png",
-                "profiles/cryptopunk/beard/003.png"
+                "profiles/cryptopunk/beard/002.png"
             ],
             "conditions": ["haveBeard"]
+        },
+        {
+            "index": 4,
+            "name": "hat",
+            "assets": [
+                "profiles/cryptopunk/hat/001.png"
+            ],
+            "conditions": ["haveHat"]
         }
     ]
 }
