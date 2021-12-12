@@ -4,12 +4,14 @@ from src.loader import bg_colors
 import random
 
 class NFT:
-    def __init__(self, asset_pack) -> None:
+    def __init__(self, asset_pack, size) -> None:
         self.assets = asset_pack.get('assets')
         self.conditions = self.load_conditions(asset_pack.get('conditions'))
+        self.size = size, size
         self.layers = list()
-        self.random_properties()
         self.hash = None
+
+        self.random_properties()
 
     def random_properties(self):
         for asset_config in sorted(self.assets, key=lambda x : x['index'], reverse=False):
@@ -38,16 +40,13 @@ class NFT:
 
     def save(self, ouput, i):
         filename = '{}{}.png'.format(ouput, generate_unique_filename())
-        new_image = Image.new('RGBA', (32, 32), random.choice(bg_colors))
+        new_image = Image.new('RGBA', self.size, random.choice(bg_colors))
 
         for layer in self.layers:
             image = Image.open(layer)
             new_image.paste(image, (0, 0), image)
 
-        new_image = new_image.resize((300, 300), resample=Image.NEAREST)
+        new_image = new_image.resize(self.size)
         new_image.save(filename)
 
         print('#{}: {} (Hash: {}, {} Layers)'.format(i, filename, self.hash, len(self.layers)))
-
-    def debug(self):
-        print('genre={}, haveBeard={}'.format(self.conditions['genre'], True if self.conditions['haveBeard'] else False))

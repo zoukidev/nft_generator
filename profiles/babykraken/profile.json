@@ -1,0 +1,31 @@
+{
+    "conditions": {},
+    "assets": [
+        {
+            "index": 0,
+            "name": "body",
+            "assets": [
+                "profiles/babykraken/body/001.png",
+                "profiles/babykraken/body/002.png",
+                "profiles/babykraken/body/003.png",
+                "profiles/babykraken/body/004.png"
+            ]
+        },
+        {
+            "index": 1,
+            "name": "eye",
+            "assets": [
+                "profiles/babykraken/eye/001.png",
+                "profiles/babykraken/eye/002.png"
+            ]
+        },
+        {
+            "index": 2,
+            "name": "mouth",
+            "assets": [
+                "profiles/babykraken/mouth/001.png",
+                "profiles/babykraken/mouth/002.png"
+            ]
+        }
+    ]
+}
