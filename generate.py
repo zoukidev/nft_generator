@@ -19,7 +19,7 @@ def create_nft(asset_pack):
             nft.save(args.output, x)
             nfts.append(nft.hash)
         else:
-            continue
+            nft.random_properties()
 
 if __name__ == '__main__':
     args.output = resolve_path(args.output)

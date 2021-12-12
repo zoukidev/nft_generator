@@ -8,7 +8,11 @@
                 "profiles/babykraken/body/001.png",
                 "profiles/babykraken/body/002.png",
                 "profiles/babykraken/body/003.png",
-                "profiles/babykraken/body/004.png"
+                "profiles/babykraken/body/004.png",
+                "profiles/babykraken/body/005.png",
+                "profiles/babykraken/body/006.png",
+                "profiles/babykraken/body/007.png",
+                "profiles/babykraken/body/008.png"
             ]
         },
         {
@@ -24,7 +28,8 @@
             "name": "mouth",
             "assets": [
                 "profiles/babykraken/mouth/001.png",
-                "profiles/babykraken/mouth/002.png"
+                "profiles/babykraken/mouth/002.png",
+                "profiles/babykraken/mouth/003.png"
             ]
         }
     ]
