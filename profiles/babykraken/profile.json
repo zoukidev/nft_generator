@@ -3,6 +3,13 @@
     "assets": [
         {
             "index": 0,
+            "name": "bg",
+            "assets": [
+                "profiles/babykraken/bg/001.png"
+            ]
+        },
+        {
+            "index": 1,
             "name": "body",
             "assets": [
                 "profiles/babykraken/body/001.png",
@@ -12,24 +19,32 @@
                 "profiles/babykraken/body/005.png",
                 "profiles/babykraken/body/006.png",
                 "profiles/babykraken/body/007.png",
-                "profiles/babykraken/body/008.png"
-            ]
-        },
-        {
-            "index": 1,
-            "name": "eye",
-            "assets": [
-                "profiles/babykraken/eye/001.png",
-                "profiles/babykraken/eye/002.png"
+                "profiles/babykraken/body/008.png",
+                "profiles/babykraken/body/009.png",
+                "profiles/babykraken/body/010.png",
+                "profiles/babykraken/body/011.png",
+                "profiles/babykraken/body/012.png",
+                "profiles/babykraken/body/013.png"
             ]
         },
         {
             "index": 2,
+            "name": "eye",
+            "assets": [
+                "profiles/babykraken/eye/001.png",
+                "profiles/babykraken/eye/002.png",
+                "profiles/babykraken/eye/003.png",
+                "profiles/babykraken/eye/004.png"
+            ]
+        },
+        {
+            "index": 3,
             "name": "mouth",
             "assets": [
                 "profiles/babykraken/mouth/001.png",
                 "profiles/babykraken/mouth/002.png",
-                "profiles/babykraken/mouth/003.png"
+                "profiles/babykraken/mouth/003.png",
+                "profiles/babykraken/mouth/004.png"
             ]
         }
     ]

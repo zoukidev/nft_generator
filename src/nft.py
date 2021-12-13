@@ -40,13 +40,13 @@ class NFT:
 
     def save(self, ouput, i):
         filename = '{}{}.png'.format(ouput, generate_unique_filename())
-        new_image = Image.new('RGBA', self.size, random.choice(bg_colors))
+        new_image = Image.new('RGB', self.size, random.choice(bg_colors))
 
         for layer in self.layers:
             image = Image.open(layer)
             new_image.paste(image, (0, 0), image)
 
-        new_image = new_image.resize(self.size)
-        new_image.save(filename)
+        new_image = new_image.resize((512, 512))
+        new_image.save(filename, bitmap_format='png')
 
         print('#{}: {} (Hash: {}, {} Layers)'.format(i, filename, self.hash, len(self.layers)))
